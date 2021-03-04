@@ -1,0 +1,26 @@
+server:
+  port: 8761
+
+#单机eureka配置
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #从服务中心获取注册信息，若是注册服务端则设置为false
+    fetch-registry: false
+    #表示该实例是否应该向eureka注册其信息,服务端置为false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#集群eureka配置，我们使用host文件配置讲localhost映射三个域名，来模拟在不同的机器上
+#eureka:
+#  instance:
+#    hostname: eureka8761.com
+#  client:
+#    #从服务中心获取注册信息，若是注册服务端则设置为false
+#    fetch-registry: false
+#    #表示该实例是否应该向eureka注册其信息,服务端置为false
+#    register-with-eureka: false
+#    service-url:
+#      defaultZone: http://eureka8763.com:8763/eureka/,http://eureka8762.com:8762/eureka/

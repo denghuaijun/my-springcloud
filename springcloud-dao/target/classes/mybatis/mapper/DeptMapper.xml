@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dhj.springcloud.dao.mapper.DeptMapper">
+    <select id="addDept"  parameterType="Dept">
+        insert into dept(deptname,db_source) value (#{deptName},DATABASE())
+    </select>
+    <select id="queryDeptById" resultType="Dept" parameterType="java.lang.Long">
+        select * from dept where deptno=#{id,jdbcType=BIGINT};
+    </select>
+    <select id="queryAll" resultType="Dept">
+        select * from dept;
+    </select>
+</mapper>

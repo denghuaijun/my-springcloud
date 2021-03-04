@@ -1,0 +1,36 @@
+server:
+  port: 80
+spring:
+  application:
+    name: springcloud-consumer
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.1.3:3306/db01?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: yunfeng123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  #config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: com.dhj.springcloud.dao.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+#消费者eureka客户端配置信息
+eureka:
+  instance:
+    hostname: localhost
+    #eureka注册中的status下面显示信息
+    instance-id: ${spring.application.name}_${eureka.instance.hostname}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://eureka8761.com:8761/eureka/ #,http://eureka8763.com:8763/eureka/,http://eureka8762.com:8762/eureka/
+    fetch-registry: true  #消费者从注册中心中获取此客户端是否应该从eureka获取eureka注册表信息
+    register-with-eureka: true #将消费者注入到eureka中
+#配置微服务在注册中心的实例信息需要依赖spring-boot-starter-actuator
+info:
+  app.name: ${spring.application.name}
+  company.name: baidu
+  app.author: denghuaijun
+  app.desc: 消费端服务

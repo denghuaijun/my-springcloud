@@ -1,0 +1,14 @@
+server:
+  port: 8762
+
+#集群eureka配置
+eureka:
+  instance:
+    hostname: eureka8762.com
+  client:
+    #从服务中心获取注册信息，若是注册服务端则设置为false
+    fetch-registry: false
+    #表示该实例是否应该向eureka注册其信息,服务端置为false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka8761.com:8761/eureka/,http://eureka8763.com:8763/eureka/
