@@ -23,6 +23,12 @@
             <artifactId>springcloud-dao</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!--添加hystrix 依赖 熔断，降级，限流，监控 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
 
     </dependencies>
 

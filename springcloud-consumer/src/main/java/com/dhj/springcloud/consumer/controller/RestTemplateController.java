@@ -12,7 +12,7 @@ import java.util.List;
  * 消费者控制层，但是消费者不应有业务层，只是作为客户端进行调用
  */
 @RestController
-@RequestMapping("/feign/consumer")
+@RequestMapping("/consumer")
 public class RestTemplateController {
 
     //不能注入，说明Springapplication容器中没有这个bean，所以我们要添加一个配置类生成这个bean

@@ -27,4 +27,5 @@ public class RestTemplateConfig {
     }
 
     //若要自定义修改负载均衡策略，那么只需要在与主启动类不同级的包下面，增加@configuration注解的类学习如RandomRule重写里面的choose方法即可
+    //主启动类加入 @RibbonClient(name="生产端appName",configuration=MyRandomRule.class)即可
 }

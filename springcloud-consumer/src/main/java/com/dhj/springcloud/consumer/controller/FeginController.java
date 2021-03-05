@@ -13,7 +13,7 @@ import java.util.List;
  * 消费者控制层，但是消费者不应有业务层，只是作为客户端进行调用
  */
 @RestController
-@RequestMapping("/consumer")
+@RequestMapping("/feign/consumer")
 public class FeginController {
 
     //注入feginClient接口类
@@ -43,4 +43,15 @@ public class FeginController {
     public String testLb(){
         return deptFeginService.testLb();
     }
+
+    /**
+     * 测试服务端熔断
+     * @param id
+     * @return
+     */
+    @GetMapping("/hystrix/queryDeptById/{id}")
+    public Dept queryDeptByIdByHystrix(@PathVariable("id") Long id){
+        return deptFeginService.queryDeptByIdByHystrix(id);
+    }
+
 }
