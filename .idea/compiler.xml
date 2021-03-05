@@ -2,17 +2,19 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springcloud-provider-8081" />
+        <module name="springcloud-fegin-def" />
         <module name="springcloud-consumer" />
+        <module name="springcloud-eureka-salve01" />
         <module name="springcloud-eureka" />
         <module name="springcloud-dao" />
         <module name="springcloud-provider" />
         <module name="springcloud-eureka-salve02" />
-        <module name="springcloud-eureka-salve01" />
+        <module name="springcloud-provider-8081" />
       </profile>
     </annotationProcessing>
   </component>
