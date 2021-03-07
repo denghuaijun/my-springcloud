@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: springcloud-zuul
+
+server:
+  port: 9090
+
+eureka:
+  instance:
+    prefer-ip-address: true #显示真实地址
+    hostname: www.zuul9090.com
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://eureka8761.com:8761/eureka/ #http://eureka8763.com:8763/eureka/,http://eureka8762.com:8762/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+info:
+  app.name: ${spring.application.name}
+  company.name: dhjtobenumber1@163.com
+
+
+#网关配置信息
+
+zuul:
+  prefix: /dhj #添加网关路由前缀
+  routes:
+    #添加对于消费端的路由
+    consumer:
+      service-id: springcloud-consumer
+      path: /myconsumer/**  #http://www.zuul9090.com:9090/dhj/myconsumer/feign/consumer/queryDeptById/1
+    #自定义路由针对生产provider
+    provider:
+      service-id: springcloud-provider  #标识对哪一个appname进行路由  http://www.zuul9090.com:9090/dhj/springcloud-provider/provider/queryDeptById/5
+      path: /myprovider/** #代替的路径 http://www.zuul9090.com:9090/dhj/myprovider/provider/queryDeptById/5
+  ignored-services: "*"   #忽略使用appname在请求路经中进行访问，也就是必须使用自定义的path

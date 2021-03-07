@@ -8,8 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springcloud-fegin-def" />
-        <module name="springcloud-consumer" />
+        <module name="springcloud-zuul" />
+        <module name="springcloud-hystrix-dashboard" />
         <module name="springcloud-eureka-salve01" />
+        <module name="springcloud-consumer" />
         <module name="springcloud-eureka" />
         <module name="springcloud-dao" />
         <module name="springcloud-provider" />

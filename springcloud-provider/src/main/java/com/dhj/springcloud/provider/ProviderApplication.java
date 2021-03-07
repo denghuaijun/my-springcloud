@@ -1,11 +1,14 @@
 package com.dhj.springcloud.provider;
 
+import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
 
 @MapperScan(basePackages = "com.dhj.springcloud.dao.mapper")
 @EnableEurekaClient
@@ -15,5 +18,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class ProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProviderApplication.class,args);
+    }
+    //开启熔断服务监控页面需要注册对应的bean
+    @Bean
+    public ServletRegistrationBean hystrixMetricsStreamServlet(){
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new HystrixMetricsStreamServlet());
+        servletRegistrationBean.addUrlMappings("/actuator/hystrix.stream");
+        return servletRegistrationBean;
     }
 }

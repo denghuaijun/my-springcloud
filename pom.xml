@@ -16,6 +16,8 @@
         <module>springcloud-eureka-salve02</module>
         <module>springcloud-provider-8081</module>
         <module>springcloud-fegin-def</module>
+        <module>springcloud-hystrix-dashboard</module>
+        <module>springcloud-zuul</module>
     </modules>
     <!--作为总的pom管理 -->
     <packaging>pom</packaging>

@@ -13,9 +13,13 @@
     <file url="file://$PROJECT_DIR$/springcloud-eureka/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-fegin-def/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-fegin-def/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-hystrix-dashboard/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-hystrix-dashboard/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-provider-8081/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-provider-8081/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-provider/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-zuul/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-zuul/src/main/resources" charset="UTF-8" />
   </component>
 </project>

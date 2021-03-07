@@ -42,7 +42,7 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
             <version>1.4.7.RELEASE</version>
         </dependency>
-        <!--微服务客户端在注册中心的配置信息 -->
+        <!--微服务客户端在注册中心的监控配置信息 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
