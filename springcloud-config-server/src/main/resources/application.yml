@@ -1,0 +1,12 @@
+server:
+  port: 1001
+
+spring:
+  application:
+    name: springcloud-config-server
+    # 配置springcloud-config-server 远程服务配置地址，以gitee为例
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/denghuaijun2020/springcloud-config.git

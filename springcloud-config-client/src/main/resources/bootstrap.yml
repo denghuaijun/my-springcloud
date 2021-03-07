@@ -1,0 +1,12 @@
+# 此配置文件称为系统配置文件，优先于application.yml。应用配置文件先加载
+spring:
+  cloud:
+    config:
+      # 配置服务端地址，客户端通过调用服务端去远程仓库获取配置信息
+      uri: http://localhost:1001/
+      # 远程仓库分支名称
+      label: master
+      # 读取远程仓库的配置文件名称
+      name: config-client
+      # 读取配置文件的对应环境配置 ，拼接起来如同在服务端单独求的地址路径
+      profile: dev
