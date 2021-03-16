@@ -25,12 +25,13 @@ info:
 zuul:
   prefix: /dhj #添加网关路由前缀
   routes:
+    myprovider: /myprovider/**
     #添加对于消费端的路由
     consumer:
       service-id: springcloud-consumer
       path: /myconsumer/**  #http://www.zuul9090.com:9090/dhj/myconsumer/feign/consumer/queryDeptById/1
     #自定义路由针对生产provider
-    provider:
-      service-id: springcloud-provider  #标识对哪一个appname进行路由  http://www.zuul9090.com:9090/dhj/springcloud-provider/provider/queryDeptById/5
-      path: /myprovider/** #代替的路径 http://www.zuul9090.com:9090/dhj/myprovider/provider/queryDeptById/5
+    #provider:
+    #  service-id: springcloud-provider  #标识对哪一个appname进行路由  http://www.zuul9090.com:9090/dhj/springcloud-provider/provider/queryDeptById/5
+    #  path: /myprovider/** #代替的路径 http://www.zuul9090.com:9090/dhj/myprovider/provider/queryDeptById/5
   ignored-services: "*"   #忽略使用appname在请求路经中进行访问，也就是必须使用自定义的path

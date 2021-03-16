@@ -1,0 +1,64 @@
+server:
+  port: 10012
+  tomcat:
+    remoteip:
+      remote-ip-header: x-forwarded-for
+      protocol-header: x-forwarded-proto
+mybatis:
+  #config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: com.dhj.springcloud.dao.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  application:
+    name: springcloud-security-auth2-resource
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.204.110:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
+  freemarker:
+    enabled: true
+    suffix: .html
+    request-context-attribute: rc
+    content-type: text/html
+    charset: UTF-8
+  mvc:
+    throw-exception-if-no-handler-found: true
+#eureka客户端配置信息
+eureka:
+  instance:
+    hostname: localhost
+    #eureka注册中的status下面显示信息
+    instance-id: ${spring.application.name}_${eureka.instance.hostname}:${server.port}
+    prefer-ip-address: true #显示服务器实际IP地址，在eureka注册中心左下处
+  client:
+    service-url:
+      defaultZone: http://eureka8761.com:8761/eureka/ #http://eureka8763.com:8763/eureka/,http://eureka8762.com:8762/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+     - mime-types: text/xml
+     - mime-types: application/xml
+     - mime-types: application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+
+
+#配置微服务在注册中心的实例信息需要依赖spring-boot-starter-actuator
+info:
+  app.name: ${spring.application.name}
+  company.name: baidu
+  app.author: denghuaijun
+logging:
+  level: debug

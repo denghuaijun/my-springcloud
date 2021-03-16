@@ -7,6 +7,8 @@ SpringCloud中国社区  http://springcloud.cn/
 
 SpringCloud中文网  https://www.springcloud.cc/
 
+https://www.cnblogs.com/haoxianrui/p/13740264.html
+
 ## Hystrix
 
 官网资料：  https://github.com/Netflix/Hystrix/wiki
@@ -25,3 +27,7 @@ SpringCloud中文网  https://www.springcloud.cc/
 
    1. 开启dashboard监控页面，则需要在对应要开启的服务端进行配置hystrixMetricsStreamServlet servletbean；
    2. spring-boot-starter-actuator 再要进行监控的服务端要添加对应的springboot监控信息依赖
+   
+## springcloud security oauth2集成测试
+### 授权码模式
+http://localhost:10011/oauth/authorize/?client_id=appid&response_type=code&scope=all&redirect_uri=http://localhost:10011   
