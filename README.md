@@ -30,4 +30,20 @@ https://www.cnblogs.com/haoxianrui/p/13740264.html
    
 ## springcloud security oauth2集成测试
 ### 授权码模式
-http://localhost:10011/oauth/authorize/?client_id=appid&response_type=code&scope=all&redirect_uri=http://localhost:10011   
+这种模式是四种模式中安全性较高的
+
+申请授权码地址：http://localhost:10011/oauth/authorize/?client_id=appid&response_type=code&scope=all&redirect_uri=http://localhost:10011   
+
+申请令牌post请求：http://localhost:10011/oauth/token?client_id=appid&client_secret=app_secret&code=授权码&grant_type=authorization_code&redirect_uri=http://localhost:10011
+
+### 简要模式
+申请令牌地址：http://localhost:10011/oauth/authorize/?client_id=appid&response_type=token&scope=all&redirect_uri=http://localhost:10011  
+认证之后同意授权之后，会将令牌回显到回传地址后面。
+
+应用场景：主要应用于没有服务端的第三方应用，所以它通过页面回传地址的形式给出
+
+### 密码模式
+用户直接使用用户名和密码去访问认证服务获取令牌：
+http://localhost:10011/oauth/token?client_id=appid&client_secret=app_secret&grant_type=password&username=用户名&password=密码
+### 客户端模式
+http://localhost:10011/oauth/token/?client_id=appid&client_secret=app_secret&grant_type=client_credentials

@@ -1,4 +1,4 @@
-package com.dhj.springcloud.sercurity.uaa.model;
+package com.dhj.springcloud.dao.entity;
 
 import lombok.Data;
 

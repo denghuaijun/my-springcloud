@@ -49,7 +49,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.inMemory()
                 .withClient("appid")//客户端唯一标识
                 .secret(new BCryptPasswordEncoder().encode("app_secret"))//客户端密钥，这个需要加密的
-                .resourceIds("res1","res1")//客户端访问的资源服务ID
+                .resourceIds("res")//客户端访问的资源服务ID，在资源服务配置类里面声明
                 .scopes("all")//允许客户端访问的范围，若是为空，则默认客户端可以拥有全部范围的访问权限
                 .authorizedGrantTypes("authorization_code","password","client_credentials","implicit","refresh_token")//客户端认证授权方式，默认五种
                 .autoApprove(false)//这个是只有授权方式为授权码时可用，若为false则，会有一个授权页面

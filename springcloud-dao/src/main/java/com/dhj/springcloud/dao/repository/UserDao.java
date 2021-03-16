@@ -1,16 +1,20 @@
-package com.dhj.springcloud.sercurity.uaa.dao;
+package com.dhj.springcloud.dao.repository;
 
 
-import com.dhj.springcloud.sercurity.uaa.model.SysPermission;
-import com.dhj.springcloud.sercurity.uaa.model.SysUser;
+
+import com.dhj.springcloud.dao.entity.SysPermission;
+import com.dhj.springcloud.dao.entity.SysUser;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
+
 
 @Repository
 public class UserDao {

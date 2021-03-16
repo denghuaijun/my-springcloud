@@ -1,9 +1,10 @@
 package com.dhj.springcloud.sercurity.uaa.service;
 
 
-import com.dhj.springcloud.sercurity.uaa.dao.UserDao;
-import com.dhj.springcloud.sercurity.uaa.model.SysPermission;
-import com.dhj.springcloud.sercurity.uaa.model.SysUser;
+
+import com.dhj.springcloud.dao.entity.SysPermission;
+import com.dhj.springcloud.dao.entity.SysUser;
+import com.dhj.springcloud.dao.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
