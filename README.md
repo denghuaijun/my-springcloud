@@ -47,3 +47,14 @@ https://www.cnblogs.com/haoxianrui/p/13740264.html
 http://localhost:10011/oauth/token?client_id=appid&client_secret=app_secret&grant_type=password&username=用户名&password=密码
 ### 客户端模式
 http://localhost:10011/oauth/token/?client_id=appid&client_secret=app_secret&grant_type=client_credentials
+
+### jwt令牌生成方式
+认证服务中心uaa处理方式：
+
+1. 在认证服务中心，令牌配置服务中使用jwt方式存储令牌
+2. 在认证服务配置类里面修改认证服务令牌配置服务添加令牌增强器，并使用jwt配置增强
+
+资源服务resource处理方式：
+
+1. 将uaa中的TokenConfig令牌配置类复制到资源服务模块，同时将资源服务配置类的使用远程调用认证服务校验token配置取消
+2. 在资源服务中注入tokenStore，同时在资源服务配置拦截中直接设置对应的token存储方式，就可以自行校验。

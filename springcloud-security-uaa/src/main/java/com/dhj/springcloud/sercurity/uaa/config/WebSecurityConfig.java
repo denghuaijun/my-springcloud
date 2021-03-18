@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     public static void main(String[] args) {
-        String encode = BCrypt.hashpw("123",BCrypt.gensalt());
+        String encode = BCrypt.hashpw("app_secret",BCrypt.gensalt());
         boolean checkpw = BCrypt.checkpw("123", "$2a$10$JLzIPolj43RLsaS7rf1bEeaRqg82rbHZFi0R1W6EF21");
         System.out.println(checkpw);
         System.out.println(encode);
