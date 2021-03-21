@@ -1,10 +1,17 @@
 spring:
   application:
     name: springcloud-zuul
+  datasource:
+    url: jdbc:mysql://192.168.204.110:3306/rbac?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
 
 server:
   port: 9090
-
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
 eureka:
   instance:
     prefer-ip-address: true #显示真实地址
@@ -23,9 +30,18 @@ info:
 #网关配置信息
 
 zuul:
-  prefix: /dhj #添加网关路由前缀
+  #prefix: /dhj #添加网关路由前缀
   routes:
-    myprovider: /myprovider/**
+    #myprovider: /myprovider/**
+    #对应uaa服务的application name
+    uaa:
+      service-id: springcloud-security-uaa
+      path: /uaa/**   # 所有/uaa开头的请求全部转发至springcloud-security-uaa服务解析
+      stripPrefix: false
+    resource:
+      service-id: springcloud-security-auth2-resource
+      path: /res/**
+      stripPrefix: false
     #添加对于消费端的路由
     consumer:
       service-id: springcloud-consumer
@@ -35,3 +51,6 @@ zuul:
     #  service-id: springcloud-provider  #标识对哪一个appname进行路由  http://www.zuul9090.com:9090/dhj/springcloud-provider/provider/queryDeptById/5
     #  path: /myprovider/** #代替的路径 http://www.zuul9090.com:9090/dhj/myprovider/provider/queryDeptById/5
   ignored-services: "*"   #忽略使用appname在请求路经中进行访问，也就是必须使用自定义的path
+  retryable: true
+  add-host-header: true
+  sensitive-headers: "*"

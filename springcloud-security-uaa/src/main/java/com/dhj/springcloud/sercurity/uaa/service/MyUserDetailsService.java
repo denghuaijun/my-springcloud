@@ -2,6 +2,7 @@ package com.dhj.springcloud.sercurity.uaa.service;
 
 
 
+import com.alibaba.fastjson.JSON;
 import com.dhj.springcloud.dao.entity.SysPermission;
 import com.dhj.springcloud.dao.entity.SysUser;
 import com.dhj.springcloud.dao.repository.UserDao;
@@ -39,7 +40,9 @@ public class MyUserDetailsService implements UserDetailsService {
         sysPermissions.forEach(sysPermission -> stringList.add(sysPermission.getPermTag()) );
         String[] sysPerArray=new String[stringList.size()];
         String[] strings = stringList.toArray(sysPerArray);
-        UserDetails build = User.withUsername(sysUser.getUsername()).password(sysUser.getPassword()).authorities(strings).build();
+        //为了方便在后续使用用户所有信息所以在这边直接把用户对象的json串传递出去
+        String priciple = JSON.toJSONString(sysUser);
+        UserDetails build = User.withUsername(priciple).password(sysUser.getPassword()).authorities(strings).build();
         return build;
     }
 }

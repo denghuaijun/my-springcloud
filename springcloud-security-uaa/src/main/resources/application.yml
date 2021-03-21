@@ -4,6 +4,8 @@ server:
     remoteip:
       remote-ip-header: x-forwarded-for
       protocol-header: x-forwarded-proto
+  servlet:
+    context-path: /uaa
 mybatis:
   #config-location: classpath:/mybatis/mybatis-config.xml
   mapper-locations: classpath:/mybatis/mapper/*.xml
@@ -34,15 +36,15 @@ spring:
   mvc:
     throw-exception-if-no-handler-found: true
 #eureka客户端配置信息
-#eureka:
-#  instance:
-#    hostname: localhost
-#    #eureka注册中的status下面显示信息
-#    instance-id: ${spring.application.name}_${eureka.instance.hostname}:${server.port}
-#    prefer-ip-address: true #显示服务器实际IP地址，在eureka注册中心左下处
-#  client:
-#    service-url:
-#      defaultZone: http://eureka8761.com:8761/eureka/ #http://eureka8763.com:8763/eureka/,http://eureka8762.com:8762/eureka/
+eureka:
+  instance:
+    hostname: localhost
+    #eureka注册中的status下面显示信息
+    instance-id: ${spring.application.name}_${eureka.instance.hostname}:${server.port}
+    prefer-ip-address: true #显示服务器实际IP地址，在eureka注册中心左下处
+  client:
+    service-url:
+      defaultZone: http://eureka8761.com:8761/eureka/ #http://eureka8763.com:8763/eureka/,http://eureka8762.com:8762/eureka/
 
 feign:
   hystrix:
